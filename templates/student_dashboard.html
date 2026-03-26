@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Student Dashboard{% endblock %}
+
+{% block content %}
+<h3 class="mb-4">Student Dashboard</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow mb-3">
+            <div class="card-body">
+                <h5>Available Placement Drives</h5>
+                <p class="text-muted">View and apply for approved drives</p>
+                <a href="/student/drives" class="btn btn-primary">
+                    View Drives
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow mb-3">
+            <div class="card-body">
+                <h5>My Applications</h5>
+                <p class="text-muted">Check application status</p>
+                <a href="/student/applications" class="btn btn-secondary">
+                    My Applications
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

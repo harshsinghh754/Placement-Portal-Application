@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}My Applications{% endblock %}
+
+{% block content %}
+<h4>My Applications</h4>
+
+<table class="table table-striped mt-3">
+    <tr>
+        <th>Drive ID</th>
+        <th>Status</th>
+        <th>Applied On</th>
+    </tr>
+
+    {% for app in applications %}
+    <tr>
+        <td>{{ app.drive_id }}</td>
+        <td>{{ app.status }}</td>
+        <td>{{ app.applied_on }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

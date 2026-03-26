@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<h3 class="mb-4">Admin Dashboard</h3>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card text-bg-primary mb-3 shadow">
+            <div class="card-body">
+                <h5>Total Students</h5>
+                <p class="fs-4">{{ total_students }}</p>
+                
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-bg-success mb-3 shadow">
+            <div class="card-body">
+                <h5>Total Companies</h5>
+                <p class="fs-4">{{ total_companies }}</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-bg-warning mb-3 shadow">
+            <div class="card-body">
+                <h5>Placement Drives</h5>
+                <p class="fs-4">{{ total_drives }}</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-bg-danger mb-3 shadow">
+            <div class="card-body">
+                <h5>Applications</h5>
+                <p class="fs-4">{{ total_applications }}</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

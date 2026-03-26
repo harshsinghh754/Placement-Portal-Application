@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Manage Drives{% endblock %}
+
+{% block content %}
+<h4>Placement Drives</h4>
+
+<table class="table table-bordered mt-3">
+    <tr>
+        <th>Company ID</th>
+        <th>Title</th>
+        <th>Deadline</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for d in drives %}
+    <tr>
+        <td>{{ d.company_id }}</td>
+        <td>{{ d.title }}</td>
+        <td>{{ d.deadline }}</td>
+        <td>
+            {% if d.approved %}
+                <span class="badge bg-success">Approved</span>
+            {% else %}
+                <span class="badge bg-warning">Pending</span>
+            {% endif %}
+        </td>
+        <td>
+            {% if not d.approved %}
+                <a href="/admin/drive/approve/{{ d.id }}"
+                   class="btn btn-sm btn-success">
+                   Approve
+                </a>
+            {% else %}
+                --
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

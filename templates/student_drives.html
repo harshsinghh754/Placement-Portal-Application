@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Available Drives{% endblock %}
+
+{% block content %}
+<h4>Approved Placement Drives</h4>
+
+<table class="table table-bordered mt-3">
+    <tr>
+        <th>Job Title</th>
+        <th>Deadline</th>
+        <th>Action</th>
+    </tr>
+
+    {% for d in drives %}
+    <tr>
+        <td>{{ d.title }}</td>
+        <td>{{ d.deadline }}</td>
+        <td>
+            <a href="/student/apply/{{ d.id }}" class="btn btn-sm btn-success">
+                Apply
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

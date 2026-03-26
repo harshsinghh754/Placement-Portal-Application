@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+<h4 class="mb-4">My Profile</h4>
+
+<div class="card shadow col-md-6">
+    <div class="card-body">
+
+        <form method="POST">
+            <div class="mb-3">
+                <label>Name</label>
+                <input class="form-control" name="name"
+                       value="{{ student.name }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Branch</label>
+                <input class="form-control" name="branch"
+                       value="{{ student.branch }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label>CGPA</label>
+                <input class="form-control" name="cgpa"
+                       value="{{ student.cgpa }}" required>
+            </div>
+
+            <button class="btn btn-success">
+                Update Profile
+            </button>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

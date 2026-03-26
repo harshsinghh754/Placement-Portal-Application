@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Company Applications{% endblock %}
+
+{% block content %}
+<h4 class="mb-4">Applications Received</h4>
+
+<h3 class="mb-3">Student Applications</h3>
+
+<form method="get" class="mb-3">
+    <input
+        type="text"
+        name="q"
+        value="{{ q or '' }}"
+        class="form-control"
+        placeholder="Search by student name or ID">
+</form>
+
+
+{% if applications|length == 0 %}
+    <div class="alert alert-info">
+        No applications received yet.
+    </div>
+{% else %}
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Branch</th>
+            <th>CGPA</th>
+            <th>Drive</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for app, student, drive in applications %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.branch }}</td>
+            <td>{{ student.cgpa }}</td>
+            <td>{{ drive.title }}</td>
+            <td>
+                <span class="badge bg-info">{{ app.status }}</span>
+            </td>
+            <td>
+                <a href="/company/application/update/{{ app.id }}/Shortlisted"
+                   class="btn btn-sm btn-success">Shortlist</a>
+
+                <a href="/company/application/update/{{ app.id }}/Rejected"
+                   class="btn btn-sm btn-danger">Reject</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="7" class="text-center text-muted">
+                No applications found
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endif %}
+{% endblock %}
